@@ -1,13 +1,13 @@
 {
     "thread": {
-        "enable": true,
+        "enable": false,
         "start": 1,
         "end": 5
     },
     "reply": {
         "enable": true,
         "start": 1,
-        "end": 5
+        "end": 50
     },
     "followedBa": {
         "enable": false,
@@ -15,12 +15,12 @@
         "end": 3
     },
     "concern": {
-        "enable": false,
+        "enable": true,
         "start": 1,
         "end": 5
     },
     "fans": {
-        "enable": true,
+        "enable": false,
         "start": 1,
         "end": 5
     }
