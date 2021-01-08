@@ -9,7 +9,6 @@ import requests
 import os
 import subprocess
 import base64
-from aes import AEScoder
 
 
 env_dist = os.environ # environ是在os.py中定义的一个dict environ = {}
@@ -18,15 +17,12 @@ if(env_dist.__contains__('NOLOG') and env_dist['NOLOG'] == '1'):
     sys.stdout = open(os.devnull, 'w')
 
 def loadCookie(sess):    
-    if(env_dist.__contains__('COOKIEKEY1') and env_dist.__contains__('COOKIEKEY2')):
+    if(env_dist.__contains__('COOKIEKEY')):
         print("KEYExist");
     else:
         print("NOKEY")
         exit(1)
-    cookies = open("/".join([sys.path[0], "cookie.json.enc"])).read();
-    key =  env_dist['COOKIEKEY1'] + env_dist['COOKIEKEY2']
-    t = AEScoder(key);
-    cookies = t.decrypt(cookies);
+    cookies = env_dist['COOKIEKEY']
     cookies = cookies.replace("\n", "")
     cookies = json.loads(cookies)
     sess.headers["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36"
