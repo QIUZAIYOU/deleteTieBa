@@ -31,7 +31,6 @@ jobs:
     - name: Run
       env:
         NOLOG: '1'
-        COOKIEKEY1: ${{ secrets.COOKIEKEY1 }}
-        COOKIEKEY2: ${{ secrets.COOKIEKEY2 }}
+        COOKIEKEY: ${{ secrets.COOKIEKEY }}
       run: |
         python DeleteMyHistory.py
