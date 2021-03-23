@@ -7,7 +7,7 @@
     "reply": {
         "enable": true,
         "start": 1,
-        "end": 50
+        "end": 999
     },
     "followedBa": {
         "enable": false,
