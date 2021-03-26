@@ -1,7 +1,7 @@
 
 ## 今日删除状态
 
-![DeleteTieBa](https://github.com/ghosx/tieba/workflows/DeleteTieBa/badge.svg)
+![DeleteTieBa](https://github.com/QIUZAIYOU/deleteTieBa/workflows/DeleteTieBa/badge.svg)
 
 看到有个朋友fork之后把自己的cookie.json 文件也上传了,这样会有存在的泄露信息风险
 
