@@ -19,7 +19,7 @@
 ~~在此基础上做了一些改动，不需要 vps ，借助免费的[Travis][1] 每天/周自动运行(前提:你的项目是public,所以这里**加密**了cookie)~~
 ##  1. fork 本项目到你自己的github
 
-##  2. 提取cookie(json格式) 并填入系统环境变量SECRET ~~并加密 cookie
+##  2. 提取cookie(json格式) 并填入系统环境变量SECRET
 
 
 - 打开[贴吧首页](https://tieba.baidu.com/)
