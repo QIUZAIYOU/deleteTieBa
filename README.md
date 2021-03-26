@@ -1,4 +1,8 @@
 
+## 今日删除状态
+
+![DeleteTieBa](https://github.com/ghosx/tieba/workflows/DeleteTieBa/badge.svg)
+
 看到有个朋友fork之后把自己的cookie.json 文件也上传了,这样会有存在的泄露信息风险
 
 .gitignore里面写了  忽略这个文件的,不知道他怎么上传的
