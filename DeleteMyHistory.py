@@ -14,6 +14,9 @@ import logging
 
 env_dist = os.environ # environ是在os.py中定义的一个dict environ = {}
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 if(env_dist.__contains__('NOLOG') and env_dist['NOLOG'] == '1'):
     sys.stdout = open(os.devnull, 'w')
 
