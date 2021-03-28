@@ -9,6 +9,7 @@ import requests
 import os
 import subprocess
 import base64
+import logging
 
 
 env_dist = os.environ # environ是在os.py中定义的一个dict environ = {}
