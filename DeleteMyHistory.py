@@ -53,7 +53,7 @@ def getThreadList(sess, startPageNumber, endPageNumber):
     pidExp = re.compile(r"pid=([0-9]{1,})")
 
     for number in range(startPageNumber, endPageNumber + 1):
-        logger.info("Now in thread page", number)
+        logger.info("Now in thread page", str(number))
         url = "http://tieba.baidu.com/i/i/my_tie?pn=" + str(number)
         res = sess.get(url)
 
@@ -75,7 +75,7 @@ def getThreadList(sess, startPageNumber, endPageNumber):
 
         elements = html.find_all(name="a", attrs={"class": "thread_title"})
         for element in elements:
-            logger.info(element)
+            logger.info(str(element))
             thread = element.get("href")
             threadDict = dict()
             threadDict["tid"] = tidExp.findall(thread)[0]
@@ -91,7 +91,7 @@ def getReplyList(sess, startPageNumber, endPageNumber):
     cidExp = re.compile(r"cid=([0-9]{1,})")  # 楼中楼为 cid
 
     for number in range(startPageNumber, endPageNumber + 1):
-        logger.info("Now in reply page", number)
+        logger.info("Now in reply page", str(number))
         url = "http://tieba.baidu.com/i/i/my_reply?pn=" + str(number)
         res = sess.get(url)
 
@@ -121,7 +121,7 @@ def getReplyList(sess, startPageNumber, endPageNumber):
 def getFollowedBaList(sess, startPageNumber, endPageNumber):
     baList = list()
     for number in range(startPageNumber, endPageNumber + 1):
-        logger.info("Now in followed Ba page", number)
+        logger.info("Now in followed Ba page", str(number))
         url = "http://tieba.baidu.com/f/like/mylike?pn=" + str(number)
         res = sess.get(url)
 
@@ -143,7 +143,7 @@ def getFollowedBaList(sess, startPageNumber, endPageNumber):
 def getConcerns(sess, startPageNumber, endPageNumber):
     concernList = list()
     for number in range(startPageNumber, endPageNumber + 1):
-        logger.info("Now in concern page", number)
+        logger.info("Now in concern page", str(number))
         url = "http://tieba.baidu.com/i/i/concern?pn=" + str(number)
         res = sess.get(url)
 
@@ -167,7 +167,7 @@ def getFans(sess, startPageNumber, endPageNumber):
     tbsExp = re.compile(r"tbs : '([0-9a-zA-Z]{16})'")  # 居然还有一个短版 tbs.... 绝了
     
     for number in range(startPageNumber, endPageNumber + 1):
-        logger.info("Now in fans page", number)
+        logger.info("Now in fans page", str(number))
         url = "http://tieba.baidu.com/i/i/fans?pn=" + str(number)
         res = sess.get(url)
 
@@ -192,7 +192,7 @@ def deleteThread(sess, threadList):
     count = 0
 
     for threadDict in threadList:
-        logger.info("Now deleting", threadDict)
+        logger.info("Now deleting", str(threadDict))
         postData = dict()
         postData["tbs"] = getTbs(sess)
         for idName in threadDict:
@@ -216,7 +216,7 @@ def deleteFollowedBa(sess, baList):
     url = "https://tieba.baidu.com/f/like/commit/delete"
 
     for ba in baList:
-        logger.info("Now unfollowing", ba)
+        logger.info("Now unfollowing", str(ba))
         res = sess.post(url, data=ba)
         logger.info(res.text)
 
@@ -225,7 +225,7 @@ def deleteConcern(sess, concernList):
     url = "https://tieba.baidu.com/home/post/unfollow"
 
     for concern in concernList:
-        logger.info("Now unfollowing", concern)
+        logger.info("Now unfollowing", str(concern))
         res = sess.post(url, data=concern)
         logger.info(res.text)
 
@@ -234,7 +234,7 @@ def deleteFans(sess, fansList):
     url = "https://tieba.baidu.com/i/commit"
 
     for fans in fansList:
-        logger.info("Now blocking fans", fans)
+        logger.info("Now blocking fans", str(fans))
         res = sess.post(url, data=fans)
         logger.info(res.text)
 
@@ -255,7 +255,7 @@ def main():
         check(threadList)
         logger.info("Collected", len(threadList), "threads", end="\n\n")
         count = deleteThread(sess, threadList)
-        logger.info(count, "threads has been deleted", end="")
+        logger.info(str(count), "threads has been deleted", end="")
         if len(threadList) != count:
             logger.info(", left", len(threadList) - count, "threads due to limit exceeded.", end="\n\n")
         else:
