@@ -18,9 +18,9 @@ if(env_dist.__contains__('NOLOG') and env_dist['NOLOG'] == '1'):
 
 def loadCookie(sess):    
     if(env_dist.__contains__('COOKIEKEY')):
-        logger.info("KEYExist");
+        logger.info("KEYExist")
     else:
-        logger.info("NOKEY")
+        logger.error("NOKEY")
         exit(1)
     cookies = env_dist['COOKIEKEY']
     cookies = cookies.replace("\n", "")
