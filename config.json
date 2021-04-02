@@ -6,8 +6,8 @@
     },
     "reply": {
         "enable": true,
-        "start": 1,
-        "end": 999
+        "start": 2,
+        "end": 10
     },
     "followedBa": {
         "enable": false,
